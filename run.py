@@ -6,7 +6,9 @@ import os
 app = Flask(__name__)
 
 # Database for Blog Content
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/pruthivimuhilan/PycharmProjects/star/Blog1/blog.db'
+db_path = os.path.join(os.path.dirname(__file__), 'blog.db')
+db_uri = 'sqlite:///{}'.format(db_path)
+app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
 db = SQLAlchemy(app)
 
